@@ -22,6 +22,14 @@ export const CatWrapper = styled.div`
   }
 `;
 
+export const CatLoaderWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100;
+  justify-content: center;
+  align-items: center;
+`;
+
 // CatItem
 
 export const CatCard = styled.div`
