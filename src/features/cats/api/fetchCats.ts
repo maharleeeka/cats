@@ -4,7 +4,7 @@ import { FetchCatResponse } from '../types';
 const fetchCats = () => {
   try {
     return fetch(
-      `${urls.CAT}images/search?limit=10&api_key=${
+      `${urls.CAT}images/search?limit=20&api_key=${
         import.meta.env.VITE_API_KEY
       }`,
     )
