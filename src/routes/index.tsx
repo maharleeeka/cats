@@ -1,4 +1,4 @@
-import CatRoutes from '../features/cats/routes';
+import CatRoutes from '@/features/cats/routes';
 import { useRoutes } from 'react-router-dom';
 
 const Routes = () => {
