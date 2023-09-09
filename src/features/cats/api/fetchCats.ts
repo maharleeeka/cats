@@ -1,6 +1,6 @@
 import { urls } from '../../../constants/urls';
 
-export const fetchMovies = () => {
+const fetchCats = () => {
   try {
     return fetch(
       `${urls.CAT}images/search?limit=10&api_key=${
@@ -13,3 +13,5 @@ export const fetchMovies = () => {
     console.log({ error });
   }
 };
+
+export default fetchCats;
