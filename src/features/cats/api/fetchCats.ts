@@ -1,4 +1,5 @@
 import { urls } from '@/constants/urls';
+import { FetchCatResponse } from '../types';
 
 const fetchCats = () => {
   try {
@@ -8,7 +9,7 @@ const fetchCats = () => {
       }`,
     )
       .then((response) => response.json())
-      .then((data) => data);
+      .then((data) => data as FetchCatResponse[]);
   } catch (error) {
     console.log({ error });
   }

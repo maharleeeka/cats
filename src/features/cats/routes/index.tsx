@@ -1,6 +1,7 @@
+import React from 'react';
 import { Outlet, RouteObject } from 'react-router-dom';
 import { Cats } from './Cats';
-import PublicRoutes from '../../../routes/public';
+import PublicRoutes from '@/routes/public';
 
 const CatRoutes: RouteObject = {
   element: (
