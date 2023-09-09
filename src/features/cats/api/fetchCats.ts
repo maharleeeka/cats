@@ -1,4 +1,4 @@
-import { urls } from '../../../constants/urls';
+import { urls } from '@/constants/urls';
 
 const fetchCats = () => {
   try {

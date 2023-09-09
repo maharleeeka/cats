@@ -1,4 +1,4 @@
-import { useFetchCats } from '../hooks/useFetchCats';
+import { useFetchCats } from '@/features/cats';
 
 export const CatList = () => {
   const { cats } = useFetchCats();
