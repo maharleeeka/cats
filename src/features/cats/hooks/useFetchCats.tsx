@@ -6,12 +6,11 @@ export const useFetchCats = () => {
   const [cats, setCats] = useState<FetchCatResponse[]>();
 
   const fetchCatList = async () => {
-    const catList = await fetchCats()?.then((data) => data);
-    if (catList) setCats(catList);
+    return await fetchCats()?.then((data) => data);
   };
 
   useEffect(() => {
     fetchCatList();
   }, []);
-  return { cats };
+  return { cats, setCats, fetchCatList };
 };
