@@ -1,11 +1,12 @@
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
-import { MovieList } from './features/movies/components/MovieList';
+import Routes from './routes';
 
 function App() {
   return (
-    <>
-      <MovieList />
-    </>
+    <BrowserRouter>
+      <Routes />
+    </BrowserRouter>
   );
 }
 
