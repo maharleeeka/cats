@@ -34,7 +34,7 @@ export const CatLoaderWrapper = styled.div`
 
 export const CatCard = styled.div`
   display: flex;
-  width: 10em;
+  width: 12em;
   height: 15em;
   margin: 10px;
   justify-content: space-evenly;
