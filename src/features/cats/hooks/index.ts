@@ -1,3 +1,4 @@
 import { useFetchCats } from './useFetchCats';
+import { useFetchBreeds } from './useFetchBreeds';
 
-export { useFetchCats };
+export { useFetchCats, useFetchBreeds };
