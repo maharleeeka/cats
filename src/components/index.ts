@@ -1,3 +1,3 @@
 import { CatLoader } from './CatLoader/CatLoader';
-
-export { CatLoader };
+import { SearchInput } from './Input/SearchInput';
+export { CatLoader, SearchInput };

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-// CatList
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -9,7 +8,35 @@ export const Container = styled.div`
 
 export const SearchWrapper = styled.div`
   height: 5em;
-  background: blue;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  @media only screen and (max-width: 600px) {
+    height: 7em;
+    width: 100%;
+    flex-direction: column;
+  }
+`;
+
+export const SearchInputWrapper = styled.div`
+  width: 50%;
+
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+  }
+`;
+
+export const ShareButton = styled.button`
+  width: 40%;
+  background-color: #dde6d5;
+  padding: 0.5em;
+  border-radius: 50px;
+  color: #667b68;
+
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+  }
 `;
 
 export const CatWrapper = styled.div`
@@ -29,8 +56,6 @@ export const CatLoaderWrapper = styled.div`
   justify-content: center;
   align-items: center;
 `;
-
-// CatItem
 
 export const CatCard = styled.div`
   display: flex;
