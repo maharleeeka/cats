@@ -6,9 +6,11 @@ import {
   CatLoaderWrapper,
   CatWrapper,
   Container,
+  SearchInputWrapper,
   SearchWrapper,
+  ShareButton,
 } from './element';
-import { CatLoader } from '@/components';
+import { CatLoader, SearchInput } from '@/components';
 
 export const CatList = () => {
   const { fetchCatList } = useFetchCats();
@@ -26,7 +28,12 @@ export const CatList = () => {
 
   return (
     <Container>
-      <SearchWrapper />
+      <SearchWrapper>
+        <SearchInputWrapper>
+          <SearchInput />
+        </SearchInputWrapper>
+        <ShareButton>Share your Cat with us!</ShareButton>
+      </SearchWrapper>
       {isLoading ? (
         <CatLoaderWrapper>
           <CatLoader />{' '}
