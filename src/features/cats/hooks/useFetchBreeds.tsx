@@ -1,4 +1,3 @@
-import React from 'react';
 import { fetchBreeds } from '../api';
 
 export const useFetchBreeds = () => {
