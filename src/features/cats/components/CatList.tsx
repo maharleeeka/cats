@@ -1,4 +1,3 @@
-import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useFetchCats } from '@/features/cats';
 import { CatItemCard } from './CatItem';

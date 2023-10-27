@@ -1,4 +1,3 @@
-import React from 'react';
 import { CatItem } from '../types';
 import { CatCard, CatImage } from './element';
 
