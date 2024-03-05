@@ -10,7 +10,7 @@ export default defineConfig({
       name: 'remote-app',
       filename: 'remoteEntry.js',
       exposes: {
-        './Cats': './src/features/cats/components/CatItem.tsx',
+        './CatLoader': './src/components/CatLoader/CatLoader.tsx',
       },
       shared: ['react'],
     }),
