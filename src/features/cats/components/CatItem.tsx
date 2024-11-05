@@ -9,7 +9,7 @@ export const CatItemCard = ({ url }: Props) => {
   const renderCatCard = () => {
     return (
       <CatCard>
-        <CatImage src={url} />
+        <CatImage src={url} loading="lazy" />
       </CatCard>
     );
   };

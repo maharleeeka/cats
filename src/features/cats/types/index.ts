@@ -1,3 +1,8 @@
+type BaseParams = {
+  limit: number;
+  page: number;
+};
+
 type CatModel = {
   breeds: string[];
   id: string;
@@ -10,4 +15,4 @@ type CatModel = {
   }[];
 };
 
-export type { CatModel };
+export type { BaseParams, CatModel };
