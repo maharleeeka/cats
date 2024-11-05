@@ -1,4 +1,4 @@
-type FetchCatResponse = {
+type CatModel = {
   breeds: string[];
   id: string;
   url: string;
@@ -10,9 +10,4 @@ type FetchCatResponse = {
   }[];
 };
 
-type CatItem = {
-  catImage: string;
-  id: string;
-};
-
-export type { FetchCatResponse, CatItem };
+export type { CatModel };

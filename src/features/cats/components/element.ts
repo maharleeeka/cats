@@ -63,6 +63,7 @@ export const CatCard = styled.div`
   height: 15em;
   margin: 10px;
   justify-content: space-evenly;
+  object-fit: contain;
 
   @media only screen and (max-width: 600px) {
     width: 100%;

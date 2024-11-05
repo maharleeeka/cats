@@ -1,5 +1,3 @@
-import { useQuery } from '@tanstack/react-query';
-import { useFetchCats } from '@/features/cats';
 import { CatItemCard } from './CatItem';
 import {
   CatLoaderWrapper,
@@ -10,20 +8,17 @@ import {
   ShareButton,
 } from './element';
 import { CatLoader, SearchInput } from '@/components';
+import { useGetCatsQuery } from '@/services/catApi';
+import { CatModel } from '../types';
 
 export const CatList = () => {
-  const { fetchCatList } = useFetchCats();
+  const { data: cats, isLoading } = useGetCatsQuery();
 
   const renderCats = () => {
-    return data?.map(({ id, url }, index: number) => {
-      return <CatItemCard key={index} id={id} catImage={url} />;
+    return cats?.map((catItem: CatModel) => {
+      return <CatItemCard key={catItem.id} {...catItem} />;
     });
   };
-
-  const { data, isLoading } = useQuery({
-    queryKey: ['fetch-cats'],
-    queryFn: () => fetchCatList(),
-  });
 
   return (
     <Container>

@@ -1,15 +1,15 @@
-import { CatItem } from '../types';
+import { CatModel } from '../types';
 import { CatCard, CatImage } from './element';
 
 type Props = {
   onPressCat?: () => void;
-} & CatItem;
+} & CatModel;
 
-export const CatItemCard = ({ catImage }: Props) => {
+export const CatItemCard = ({ url }: Props) => {
   const renderCatCard = () => {
     return (
       <CatCard>
-        <CatImage src={catImage} />
+        <CatImage src={url} />
       </CatCard>
     );
   };
