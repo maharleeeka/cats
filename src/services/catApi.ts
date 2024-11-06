@@ -13,10 +13,17 @@ export const catApi = createApi({
   }),
   endpoints: (builder) => ({
     getCats: builder.query<CatModel[], BaseParams>({
-      query: ({ limit, page }) =>
-        `images/search?limit=${limit}&page=${page}&has_breeds=false`,
+      query: ({ limit, page }) => `images/search?limit=${limit}&page=${page}`,
+    }),
+    getCatByImageID: builder.query<CatModel, { id: string }>({
+      query: ({ id }) => `images/${id}`,
     }),
   }),
 });
 
-export const { useGetCatsQuery, useLazyGetCatsQuery } = catApi;
+export const {
+  useGetCatsQuery,
+  useLazyGetCatsQuery,
+  useGetCatByImageIDQuery,
+  useLazyGetCatByImageIDQuery,
+} = catApi;

@@ -1,13 +1,6 @@
 import { CatItemCard } from './CatItem';
-import {
-  CatLoaderWrapper,
-  CatWrapper,
-  Container,
-  SearchInputWrapper,
-  SearchWrapper,
-  ShareButton,
-} from './element';
-import { CatLoader, SearchInput } from '@/components';
+import { CatLoaderWrapper, CatWrapper, Container } from './element';
+import { CatLoader } from '@/components';
 import { useLazyGetCatsQuery } from '@/services/catApi';
 import { CatModel } from '../types';
 import { useEffect, useState } from 'react';
@@ -64,12 +57,6 @@ export const CatList = () => {
 
   return (
     <Container>
-      <SearchWrapper>
-        <SearchInputWrapper>
-          <SearchInput />
-        </SearchInputWrapper>
-        <ShareButton>Share your Cat with us!</ShareButton>
-      </SearchWrapper>
       {isLoading ? <Loader /> : <CatWrapper>{renderCats()}</CatWrapper>}
     </Container>
   );

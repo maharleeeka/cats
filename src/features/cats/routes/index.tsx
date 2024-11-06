@@ -1,6 +1,8 @@
 import { Outlet, RouteObject } from 'react-router-dom';
-import { Cats } from './Cats';
+import { Cats } from '../pages/Cats';
 import PublicRoutes from '@/routes/public';
+import CatInfo from '../pages/CatInfo';
+import { APP_ROUTES } from '@/constants/route';
 
 const CatRoutes: RouteObject = {
   element: (
@@ -10,8 +12,12 @@ const CatRoutes: RouteObject = {
   ),
   children: [
     {
-      path: '/*',
+      path: APP_ROUTES.ROOT,
       element: <Cats />,
+    },
+    {
+      path: APP_ROUTES.CAT_INFO,
+      element: <CatInfo />,
     },
   ],
 };

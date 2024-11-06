@@ -41,8 +41,8 @@ export const ShareButton = styled.button`
 
 export const CatWrapper = styled.div`
   display: flex;
-  justify-content: center;
   width: 100%;
+  justify-content: center;
   flex-wrap: wrap;
   @media only screen and (max-width: 600px) {
     justify-content: center;
@@ -60,10 +60,9 @@ export const CatLoaderWrapper = styled.div`
 export const CatCard = styled.div`
   display: flex;
   width: 12em;
-  height: 15em;
+  height: 12em;
   margin: 10px;
   justify-content: space-evenly;
-  object-fit: contain;
 
   @media only screen and (max-width: 600px) {
     width: 100%;
@@ -73,6 +72,8 @@ export const CatCard = styled.div`
 
 export const CatImage = styled.img`
   object-fit: cover;
+  width: 12em;
+  height: 12em;
   @media only screen and (max-width: 600px) {
     width: 100%;
     height: 25em;

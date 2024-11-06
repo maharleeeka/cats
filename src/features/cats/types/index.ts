@@ -4,7 +4,7 @@ type BaseParams = {
 };
 
 type CatModel = {
-  breeds: string[];
+  breeds: BreedModel[];
   id: string;
   url: string;
   width: number;
@@ -15,4 +15,13 @@ type CatModel = {
   }[];
 };
 
-export type { BaseParams, CatModel };
+type BreedModel = {
+  id: string;
+  name: string;
+  temperament: string;
+  description: string;
+  life_span: string;
+  alt_names: string;
+};
+
+export type { BaseParams, CatModel, BreedModel };
