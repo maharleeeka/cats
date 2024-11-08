@@ -33,7 +33,7 @@ const CatDetails = () => {
       cat.
     </span>
   ) : (
-    <span>Cat breed has not been identified yet.</span>
+    <span>Oops, we don't have info about this cat yet.</span>
   );
 
   const shareUrl = `${import.meta.env.VITE_BASE_URL}${APP_ROUTES.ROOT}${id}`;

@@ -12,7 +12,7 @@ export const CatItemCard = ({ url, id }: Props) => {
   };
   const renderCatCard = () => {
     return (
-      <CatCard onClick={navigateToCatInfo}>
+      <CatCard onClick={navigateToCatInfo} className="cursor-pointer">
         <CatImage src={url} loading="lazy" />
       </CatCard>
     );
