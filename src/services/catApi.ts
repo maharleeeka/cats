@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { BaseParams, CatModel } from '../features/cats/types';
+import { BaseParams, CatModel, CatQueryParams } from '../features/cats/types';
 import { urls } from '@/constants/urls';
 
 export const catApi = createApi({
@@ -12,8 +12,11 @@ export const catApi = createApi({
     },
   }),
   endpoints: (builder) => ({
-    getCats: builder.query<CatModel[], BaseParams>({
-      query: ({ limit, page }) => `images/search?limit=${limit}&page=${page}`,
+    getCats: builder.query<CatModel[], BaseParams & CatQueryParams>({
+      query: ({ limit, page, breedID }) => {
+        const baseQuery = `images/search?limit=${limit}&page=${page}&has_breeds=true&order=RANDOM`;
+        return breedID ? `${baseQuery}&breed_ids=${breedID}` : baseQuery;
+      },
     }),
     getCatByImageID: builder.query<CatModel, { id: string }>({
       query: ({ id }) => `images/${id}`,

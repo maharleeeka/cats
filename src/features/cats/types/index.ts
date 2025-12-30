@@ -3,6 +3,10 @@ type BaseParams = {
   page: number;
 };
 
+type CatQueryParams = {
+  breedID?: string;
+};
+
 type CatModel = {
   breeds: BreedModel[];
   id: string;
@@ -24,4 +28,4 @@ type BreedModel = {
   alt_names: string;
 };
 
-export type { BaseParams, CatModel, BreedModel };
+export type { BaseParams, CatQueryParams, CatModel, BreedModel };

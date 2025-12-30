@@ -5,6 +5,8 @@ import { useParams } from 'react-router-dom';
 import { BreedModel } from '../types';
 import SocialShare from './SocialShare';
 import { APP_ROUTES } from '@/constants/route';
+import CatListByBreed from './CatListByBreed';
+import { Container } from './element';
 
 const CatDetails = () => {
   const params = useParams();
@@ -24,64 +26,72 @@ const CatDetails = () => {
         const breed = resp.breeds[0];
         setCatBreedInfo(breed);
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log({ error });
+    }
   };
 
   const catBreed = catBreedInfo ? (
     <span>
-      This is a <span className="text-yellow-700">{catBreedInfo.name}</span>{' '}
-      cat.
+      <span className="text-yellow-700">{catBreedInfo.name}</span>{' '}
     </span>
   ) : (
-    <span>Oops, we don't have info about this cat yet.</span>
+    <span>{`Oops, we don't have info about this cat yet.`}</span>
   );
 
   const shareUrl = `${import.meta.env.VITE_BASE_URL}${APP_ROUTES.ROOT}${id}`;
 
-  return (
-    <div className="w-full flex justify-center">
-      {isLoading && <CatLoader />}
+  return catBreedInfo ? (
+    <Container>
+      <div className="w-full flex justify-center">
+        {isLoading && <CatLoader />}
 
-      {data && (
-        <div className="flex flex-col md:grid md:grid-cols-2 md:gap-4">
-          <img
-            src={data.url}
-            className="w-full md:w-auto h-auto object-cover"
-            alt="Cat image"
-          />
-          <div className="flex flex-col p-4 gap-4">
-            <SocialShare url={shareUrl} />
-            <div className="text-2xl font-extrabold">{catBreed}</div>
+        {data && (
+          <div className="flex flex-col md:grid md:grid-cols-2 md:gap-4">
+            <img
+              src={data.url}
+              className="w-full md:w-auto h-auto object-cover"
+              alt="Cat image"
+            />
+            <div className="flex flex-col p-4 gap-4">
+              <SocialShare url={shareUrl} />
+              <div className="text-2xl font-extrabold">{catBreed}</div>
 
-            {catBreedInfo && (
-              <div>
-                <div className="p-1 text-gray-600">
-                  <span className="font-bold text-yellow-500">Alt Names</span>{' '}
-                  <br />
-                  {catBreedInfo?.alt_names || 'None'}
+              {catBreedInfo && (
+                <div>
+                  <div className="p-1 text-gray-600">
+                    <span className="font-bold text-yellow-500">Alt Names</span>{' '}
+                    <br />
+                    {catBreedInfo?.alt_names || 'None'}
+                  </div>
+                  <div className="p-1 text-gray-600">
+                    <span className="font-bold text-yellow-500">
+                      Description
+                    </span>{' '}
+                    <br />
+                    {catBreedInfo?.description}
+                  </div>
+                  <div className="p-1  text-gray-600">
+                    <span className="font-bold text-yellow-500">
+                      Temperament
+                    </span>{' '}
+                    <br />
+                    {catBreedInfo?.temperament}
+                  </div>
+                  <div className="p-1  text-gray-600">
+                    <span className="font-bold text-yellow-500">Life Span</span>{' '}
+                    <br />
+                    {catBreedInfo?.life_span} years
+                  </div>
                 </div>
-                <div className="p-1 text-gray-600">
-                  <span className="font-bold text-yellow-500">Description</span>{' '}
-                  <br />
-                  {catBreedInfo?.description}
-                </div>
-                <div className="p-1  text-gray-600">
-                  <span className="font-bold text-yellow-500">Temperament</span>{' '}
-                  <br />
-                  {catBreedInfo?.temperament}
-                </div>
-                <div className="p-1  text-gray-600">
-                  <span className="font-bold text-yellow-500">Life Span</span>{' '}
-                  <br />
-                  {catBreedInfo?.life_span} years
-                </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
-        </div>
-      )}
-    </div>
-  );
+        )}
+      </div>
+      <CatListByBreed breedId={catBreedInfo?.id} />
+    </Container>
+  ) : null;
 };
 
 export default CatDetails;

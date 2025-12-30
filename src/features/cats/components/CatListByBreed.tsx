@@ -1,14 +1,15 @@
-import { CatItemCard } from './CatItem';
-import { CatLoaderWrapper, CatWrapper, Container } from './element';
-import { CatLoader } from '@/components';
 import { useLazyGetCatsQuery } from '@/services/catApi';
-import { CatModel } from '../types';
 import { useEffect, useState } from 'react';
+import { CatModel } from '../types';
+import { CatItemCard } from './CatItem';
+import { CatWrapper, Container } from './element';
+import { CatLoader } from '@/components';
 
-export const CatList = () => {
-  const [fetchCats, { isLoading }] = useLazyGetCatsQuery();
-  const [page, setPageNumber] = useState(0);
+const CatListByBreed = ({ breedId }: { breedId: string }) => {
   const [cats, setCats] = useState<CatModel[] | null>(null);
+  const [page, setPageNumber] = useState(0);
+  const [fetchCats, { isLoading }] = useLazyGetCatsQuery();
+
   useEffect(() => {
     if (page) fetchCatList();
   }, [page]);
@@ -33,7 +34,11 @@ export const CatList = () => {
 
   const fetchCatList = async () => {
     try {
-      const resp = await fetchCats({ limit: 20, page }).unwrap();
+      const resp = await fetchCats({
+        limit: 20,
+        page,
+        breedID: breedId,
+      }).unwrap();
       setCats((prev) => {
         const newCats = resp.filter(
           (cat) => !prev?.some((existingCat) => existingCat.id === cat.id),
@@ -51,15 +56,16 @@ export const CatList = () => {
     });
   };
 
-  const Loader = () => (
-    <CatLoaderWrapper>
-      <CatLoader />
-    </CatLoaderWrapper>
-  );
-
   return (
-    <Container>
-      {isLoading ? <Loader /> : <CatWrapper>{renderCats()}</CatWrapper>}
-    </Container>
+    <div className="py-10">
+      <div className="text-2xl font-extrabold text-yellow-700">
+        More like this
+      </div>
+      <Container>
+        {isLoading ? <CatLoader /> : <CatWrapper>{renderCats()}</CatWrapper>}
+      </Container>
+    </div>
   );
 };
+
+export default CatListByBreed;
